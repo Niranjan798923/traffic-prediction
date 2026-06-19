@@ -34,6 +34,25 @@ def get_dataframe():
 def ensure_model():
     return load_model_bundle()
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "message": "Smart Bangalore Traffic Prediction API Running",
+        "status": "success",
+        "endpoints": [
+            "/health",
+            "/locations",
+            "/statistics",
+            "/predict",
+            "/traffic-by-hour",
+            "/traffic-by-day",
+            "/congestion-by-area",
+            "/visualization-data",
+            "/prediction-history"
+        ]
+    })
+
+
 
 @app.route("/health", methods=["GET"])
 def health():
